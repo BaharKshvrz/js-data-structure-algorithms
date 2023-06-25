@@ -4,3 +4,7 @@ The process in which a function calls itself directly or indirectly is called re
 
 Time complexity of fibonacci is exponential time( O(2^n))
 
+## How to optimize recursive algorithms?
+Solution: Tail call optimization means that it is possible to call a function from another function without growing the call stack.
+
+

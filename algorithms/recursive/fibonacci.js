@@ -30,7 +30,7 @@ function fibonacciRecursive(number) { // O(2 ^ n)
    return fibonacciRecursive(number-1) + fibonacciRecursive(number -2);
 }
 
-let fib = fibonacciIterative(14);
+let fib = fibonacciIterative(43);
 let fib2 = fibonacciRecursive(43);
 
 console.log("fibonacciIterative:", fib);
