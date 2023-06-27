@@ -8,18 +8,20 @@ let numbers = [100, 2, 50, 6, 3, 65, 80, 22, 1, 5];
 function selectionSort(arr) {
     let length = arr.length;
 
+    // One by one move boundary of unsorted subarray
     for(let i= 0; i < length; i++) {
-        let minVal = arr[i];
-        let index = i;
+        let min_idx = i;
+      
+        // Find the minimum element in unsorted array
         for (let j= i; j < length;  j++) {
-            if (arr[j] < minVal) {
-                minVal = arr[j];
-                index = j;
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
             }
        }
-        // swap numbers 
-        arr[index] = arr[i];
-        arr[i] = minVal;
+        // Swap the found minimum element with the first element
+        let temp = arr[min_idx];
+        arr[min_idx] = arr[i];
+        arr[i] = temp;
     }
 
     return arr;

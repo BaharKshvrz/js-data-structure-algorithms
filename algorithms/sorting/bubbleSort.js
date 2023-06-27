@@ -4,6 +4,7 @@
 */
 
 let numbers = [100, 2, 50, 6, 3, 65, 80, 22, 1, 5];
+
 function bubbleSort(arr) {
     let length = arr.length;
 
