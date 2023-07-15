@@ -1,3 +1,7 @@
+/*
+   Each node has children that contain 26 letters.
+*/
+
 let ALPHABET_SIZE = 26;
 
 class TrieNode {
@@ -8,7 +12,7 @@ class TrieNode {
     }
 }
 
-class Tries{
+class Trie{
     constructor() {
         this.root = new TrieNode(null);
       }
@@ -41,10 +45,24 @@ class Tries{
    
         return pCrawl.isEndOfWord;
    }
+
+   startWith(key) {  
+    let pCrawl = this.root;
+    let data = key.split('');
+    for (let ch of data) {
+       let index = ch.charCodeAt(0) - 'a'.charCodeAt(0);
+       if (!pCrawl.children[index]) {
+           return false;
+       }
+       pCrawl = pCrawl.children[index];
+      }
+
+    return true;
+    }
 }
 
-let tries = new Tries();
 
+let tries = new Trie();
 // Driver   
 // Input keys (use only 'a' through 'z' and lower case)
 let keys = ["the", "a", "there", "answer", "any", "by", "bye", "their"];
@@ -55,4 +73,4 @@ for (let word of keys) {
 }
 console.log(tries.search("an") ? output[1] : output[0]);      // Not present in trie
 console.log(tries.search("answer") ? output[1] : output[0]);  // Present in trie
-
+console.log(tries.startWith("ans") ? "YES": "No");  // YES
